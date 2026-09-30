@@ -6,12 +6,47 @@ import java.util.Set;
 public class Practica1 {
 
     static public void separa(Set<String> unicos, Set<String> repetidos) {
+        Set<String> interseccion =  new HashSet<>(unicos);
+        interseccion.retainAll(repetidos);
+
+        unicos.addAll(repetidos);
+        unicos.removeAll(interseccion);
+
+        repetidos.clear();
+        repetidos.addAll(interseccion);
 
     }
 
 
     static public Set <Integer> filtra(Iterator<Integer> iter) {
-        return null;
+        Set<Integer> vistos = new HashSet<>();
+        Set<Integer> resultado = new HashSet<>();
+
+        while (iter.hasNext()) {
+
+            Integer numero = iter.next();
+            if (numero != null && numero > 0) {
+                vistos.add(numero);
+            }
+        }
+
+            for (Integer a : vistos) {
+                boolean esMultiplo = false;
+
+                for (Integer b : vistos) {
+                    if (!a.equals(b) && a % b == 0) {
+                        esMultiplo = true;
+                        break;
+                    }
+                }
+
+                if (!esMultiplo) {
+                    resultado.add(a);
+                }
+            }
+
+            return resultado;
+
     }
 
 
