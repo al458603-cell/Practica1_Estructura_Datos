@@ -4,6 +4,9 @@
       <root url="jar://$PROJECT_DIR$/lib/TestPractica1ArtifactOf.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/TestPractica1ArtifactOf.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/TestPractica1ArtifactOf.jar!/" />
+    </SOURCES>
   </library>
 </component>

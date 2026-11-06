@@ -1,7 +1,4 @@
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 public class Practica1 {
 
@@ -51,14 +48,48 @@ public class Practica1 {
 
 
     static public Set<String> repetidos (Collection<Set<String>> col) {
+        Set<String> repetidos = new HashSet<>();
+        Set<String> vistos = new HashSet<>();
+        Iterator<Set<String>> iter = col.iterator();
 
-        return null;
+        while (iter.hasNext()) {
+             Set<String> actual = iter.next();
+             for (String a : actual) {
+                 if (!vistos.add(a)) {
+                     repetidos.add(a);
+                    }
+             }
+        }
+            return repetidos;
     }
+
+
 
 
     public static Set<Integer> interseccionImpares (Collection<Set<Integer>> col) {
-       return null;
+        if (col.isEmpty()) {
+            return new HashSet<>();
+        }
+
+        Iterator<Set<Integer>> iter = col.iterator();
+        Set<Integer> interseccion = new HashSet<>(iter.next());
+
+        while (iter.hasNext()) {
+            interseccion.retainAll(iter.next());
+        }
+
+
+        Iterator<Integer> it = interseccion.iterator();
+
+        while (it.hasNext()) {
+            if (it.next() % 2 == 0) {
+                it.remove();
+            }
+        }
+        return interseccion;
     }
 
-
 }
+
+
+
